@@ -16,9 +16,13 @@ public class TourLogApi {
     private TourLogService tourLogService;
 
     @PostMapping
-    public ResponseEntity<TourLogDto> createTourLog(@RequestBody TourLogDto tourLogDto) {
-        TourLogDto createdTourLog = tourLogService.createTourLog(tourLogDto);
-        return new ResponseEntity<>(createdTourLog, HttpStatus.CREATED);
+    public ResponseEntity createTourLog(@RequestBody TourLogDto tourLogDto) {
+        if(tourLogService.createTourLog(tourLogDto)){
+            return new ResponseEntity<>("OK", HttpStatus.CREATED);
+        }else {
+            return new ResponseEntity<>("Error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @PutMapping("/{id}")

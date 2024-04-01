@@ -23,9 +23,15 @@ public class TourMapper extends AbstractMapper<Tour, TourDto>{
                 .build();
     }
 
+
     @Override
     public TourLogDto toDto(TourLog tourLog) {
-        return null;
+        return TourLogDto.builder()
+                .id(tourLog.getId())
+                .tourId(tourLog.getTour().getId())
+                .dateTime(tourLog.getDateTime())
+                .comment(tourLog.getComment())
+                .build();
     }
 
     @Override

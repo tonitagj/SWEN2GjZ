@@ -8,7 +8,7 @@ import java.util.List;
 @Component
 public interface TourService {
 
-    TourDto saveNewTour(TourDto tourDto);
+    boolean saveNewTour(TourDto tourDto);
     List<TourDto> getAllTours();
     TourDto getTourById(Long id);
     TourDto updateTour(String name, TourDto tourDto);

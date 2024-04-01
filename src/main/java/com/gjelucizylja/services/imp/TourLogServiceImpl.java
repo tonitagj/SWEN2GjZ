@@ -6,7 +6,6 @@ import com.gjelucizylja.persistence.repositories.TourLogRepository;
 import com.gjelucizylja.persistence.repositories.TourRepository;
 import com.gjelucizylja.services.TourLogService;
 import com.gjelucizylja.services.dtos.TourLogDto;
-import com.gjelucizylja.services.mapper.TourLogMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +22,7 @@ public class TourLogServiceImpl implements TourLogService {
     private TourRepository tourRepository;
 
     @Override
-    public TourLogDto createTourLog(TourLogDto tourLogDto) {
+    public boolean createTourLog(TourLogDto tourLogDto) {
         Optional<Tour> optionalTour = tourRepository.findById(tourLogDto.getTourId());
         if (optionalTour.isEmpty()) {
             throw new IllegalArgumentException("Tour not found");
@@ -40,7 +39,7 @@ public class TourLogServiceImpl implements TourLogService {
         tourLog.setRating(tourLogDto.getRating());
 
         TourLog savedTourLog = tourLogRepository.save(tourLog);
-        return mapToDto(savedTourLog);
+        return true;
     }
     @Override
     public TourLogDto updateTourLog(Long id, TourLogDto tourLogDto) {

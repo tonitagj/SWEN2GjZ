@@ -23,7 +23,13 @@ public class TourLogMapper extends AbstractMapper<TourLog, TourLogDto>{
     public TourLog toEntity(TourLogDto tourLogDto) {
         TourLog tourLog = new TourLog();
         tourLog.setId(tourLogDto.getId());
-        // Set other attributes accordingly
+        tourLog.setTour(tourLog.getTour());
+        tourLog.setRating(tourLog.getRating());
+        tourLog.setComment(tourLog.getComment());
+        tourLog.setDifficulty(tourLog.getDifficulty());
+        tourLog.setDateTime(tourLog.getDateTime());
+        tourLog.setTotalDistance(tourLog.getTotalDistance());
+        tourLog.setTotalTime(tourLog.getTotalTime());
         return tourLog;
     }
 

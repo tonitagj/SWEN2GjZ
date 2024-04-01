@@ -10,13 +10,9 @@ import com.gjelucizylja.services.TourService;
 import com.gjelucizylja.services.dtos.TourDto;
 import com.gjelucizylja.services.mapper.TourMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Component
@@ -31,7 +27,7 @@ public class TourServiceImpl implements TourService {
     private static final String API_KEY = "5b3ce3597851110001cf624830b5a27b3c72412995c2f2c97814a47e"; //My key
 
     @Override
-    public TourDto saveNewTour(TourDto tourDto) {
+    public boolean saveNewTour(TourDto tourDto) {
         Tour tour = Tour.builder()
                 .name(tourDto.getName())
                 .tourDescription(tourDto.getTourDescription())
@@ -45,7 +41,7 @@ public class TourServiceImpl implements TourService {
 
         // Save the tour entity
         tourRepository.save(tour);
-        return tourDto;
+        return true;
     }
 
 

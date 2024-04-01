@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 public interface TourLogService {
-    TourLogDto createTourLog(TourLogDto tourLogDto);
+    boolean createTourLog(TourLogDto tourLogDto);
     TourLogDto updateTourLog(Long id, TourLogDto tourLogDto);
     void deleteTourLog(Long id);
     TourLogDto getTourLogById(Long id);
