@@ -11,6 +11,6 @@ public interface TourService {
     boolean saveNewTour(TourDto tourDto);
     List<TourDto> getAllTours();
     TourDto getTourById(Long id);
-    TourDto updateTour(String name, TourDto tourDto);
+    TourDto updateTour(Long id, TourDto tourDto);
     void deleteTour(Long id);
 }

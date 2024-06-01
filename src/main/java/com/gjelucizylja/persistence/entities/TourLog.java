@@ -6,7 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "tour_logs")
@@ -17,14 +20,15 @@ import java.time.LocalDateTime;
 public class TourLog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tour_id", nullable = false)
     private Tour tour;
 
-    @Column(name = "date_time", nullable = false)
-    private LocalDateTime dateTime;
+    @Column(name = "date", nullable = false)
+    private LocalDate date;
 
     @Column(name = "comment")
     private String comment;

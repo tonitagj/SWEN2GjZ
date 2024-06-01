@@ -29,7 +29,7 @@ public class TourMapper extends AbstractMapper<Tour, TourDto>{
         return TourLogDto.builder()
                 .id(tourLog.getId())
                 .tourId(tourLog.getTour().getId())
-                .dateTime(tourLog.getDateTime())
+                .date(tourLog.getDate())
                 .comment(tourLog.getComment())
                 .build();
     }

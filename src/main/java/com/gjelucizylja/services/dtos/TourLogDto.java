@@ -5,7 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 
 @Data
 @Builder
@@ -14,7 +17,7 @@ import java.time.LocalDateTime;
 public class TourLogDto {
     private Long id;
     private Long tourId;
-    private LocalDateTime dateTime;
+    private LocalDate date;
     private String comment;
     private int difficulty;
     private double totalDistance;
